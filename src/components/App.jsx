@@ -12,15 +12,17 @@ export default function App() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const { contacts } = useSelector((state) => state.contacts);
-  const {filter} = useSelector((state) => state.filter);
+  const { filter } = useSelector((state) => state.filter);
   const dispatch = useDispatch();
-  
+
   const handleInputChange = (event) => {
-    setName(event.currentTarget.value );
+    setName(event.currentTarget.value);
   };
 
+  console.log()
+
   const handleNumChange = (event) => {
-    setNumber(event.currentTarget.value );
+    setNumber(event.currentTarget.value);
   };
 
   const addArr = () => {
@@ -32,7 +34,7 @@ export default function App() {
       return alert('Warning');
     }
 
-    const newContact = {id: nanoid(3), name, number}
+    const newContact = { id: nanoid(3), name, number }
     dispatch(setContacts(newContact))
   }
 
